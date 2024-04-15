@@ -5,30 +5,28 @@
 
 import sqlite3
 
-conn = sqlite3.connect('/home/user/SQLite/students1.db')
+conn = sqlite3.connect('/home/phate/Env/Dev-01/Code/SQLite02/students1.db')
 c = conn.cursor()
 
-# Inserting data
+
+#Inserting data
 number = 1
 
-while number <=5:
+while number <2:
     name = input(f"Input name for entry {number}: ")
     age = input(f"input age for {name}: ")
     height= input("Suggest a height for new User: ")
-    User_details_list = [
-        (number, name, age, height)
-    ]
-    c.executemany('''
+    c.execute('''
         INSERT INTO students1 (number, name, age, height) VALUES (?, ?, ?, ?)
         ''',
-        User_details_list)
+        (number, name, age, height))
     conn.commit()
     number += 1
 
 # Displaying data
-names = c.execute("SELECT * FROM students1")
-for name in names:
-    print(c.fetchall())
+c.execute("SELECT * FROM students1")
+for name in c.fetchall:
+    print(name)
 
 conn.commit()
 

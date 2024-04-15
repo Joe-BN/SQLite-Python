@@ -3,14 +3,14 @@
 
 import sqlite3
 
-conn = sqlite3.connect('/home/user/SQLite/students.db')
+conn = sqlite3.connect('/home/phate/Env/Dev-01/Code/SQLite02/students1.db')
 c = conn.cursor()
 
 # Displaying data
-names = c.execute("SELECT * FROM students1")
+c.execute("SELECT * FROM students1")
 total = 0
-for name in names:
-    print(c.fetchone()) # Use fetchall if you want the whole lot at once
+for row in c.fetchall():
+    print(row)
     total+= 1
 
 print (total)
