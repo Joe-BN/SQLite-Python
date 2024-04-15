@@ -10,7 +10,7 @@ c = conn.cursor()
 names = c.execute("SELECT * FROM students1")
 total = 0
 for name in names:
-    print(c.fetchone())
+    print(c.fetchone()) # Use fetchall if you want the whole lot at once
     total+= 1
 
 print (total)
